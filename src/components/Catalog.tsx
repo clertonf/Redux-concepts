@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import api from "../services/api";
 import { IProduct } from "../store/modules/cart/types";
+import CatalogItem from "./CatalogItem";
 
 // import { Container } from './styles';
 
@@ -19,10 +20,7 @@ const Catalog: React.FC = () => {
       <h1>Catalog</h1>
 
       {catalog.map((product) => (
-        <article key={product.id}>
-          <strong>{product.title}</strong> {" - "}
-          <span>{product.price}</span> <button type="button">Comprar</button>
-        </article>
+        <CatalogItem key={product.id} product={product} />
       ))}
     </main>
   );
